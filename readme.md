@@ -1,17 +1,31 @@
 # Houses Restful Api
 
-
-
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+Houses Restful Api is a webservice for managing the badges and points during the gamification of the course Applicatie- en Media ontwikkeling @ Radius College Breda.
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+### Api endpoints
 
-## Security Vulnerabilities
+* GET /api/profiles/            -  fetch all profiles
+  parameters:
+  * start  - at which id you want to start fetching
+  * amount  - how many do you want to fetch
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+* GET /api/profile/D454545      -  fetch all profile data from this student
+* PUT /api/profile/D343434      -  change existing user's points or create new student
 
-## License
+* GET /api/logs/                - fetch log data of all the events
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+* GET /api/houses               - get all house data  including total points, ordered by rank
+
+## Getting started
+* composer install
+* copy .env.example to .env
+* set your env data
+* set up an Api Token in the env which will be used as authorization between this service and your application
+* migrate via `php artisan migrate`
+* optionally you can seed through `php artisan db:seed`
+
+## API Token
+When doing requests it is important that you add a hashed 'Api-Token' in the header of your request with the same value as the  key added in your env file.
+

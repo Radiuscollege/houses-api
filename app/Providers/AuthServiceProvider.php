@@ -37,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
             //TODO: add this to clients
 
             // for testing purposes
-            $header = Hash::make(env('API_TOKEN'));
+            // $header = Hash::make(env('API_TOKEN'));
 
             if ($header && Hash::check(env('API_TOKEN'), $header) ) {
                 return true;
