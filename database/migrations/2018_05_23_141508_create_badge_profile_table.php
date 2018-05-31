@@ -15,7 +15,7 @@ class CreateBadgeProfileTable extends Migration
     {
         Schema::create('badge_profile', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('profile_id');
+            $table->string('profile_id');
             $table->unsignedInteger('badge_id');
             $table->timestamps();
         });
@@ -28,6 +28,7 @@ class CreateBadgeProfileTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('badge_profile');
     }
 }

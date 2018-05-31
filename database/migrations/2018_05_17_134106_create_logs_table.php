@@ -15,19 +15,21 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->string('profile_id');
+            $table->string('giver_id');
             $table->string('body');
             $table->timestamps();
         });
     }
 
-    /**
+    /**php
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('logs');
     }
 }

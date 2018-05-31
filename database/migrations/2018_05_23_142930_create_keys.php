@@ -18,12 +18,13 @@ class CreateKeys extends Migration
         });
 
         Schema::table('logs', function(Blueprint $table){
-            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->foreign('profile_id')->references('studentnr')->on('profiles');
+            // $table->foreign('giver_id')->references('studentnr')->on('profiles');
         });
 
         Schema::table('badge_profile', function(Blueprint $table) {
             $table->foreign('badge_id')->references('id')->on('badges');
-            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->foreign('profile_id')->references('studentnr')->on('profiles');
         });
     }
 
@@ -34,6 +35,6 @@ class CreateKeys extends Migration
      */
     public function down()
     {
-        //
+
     }
 }
